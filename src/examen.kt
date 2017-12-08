@@ -1,9 +1,4 @@
 
-fun main(args: Array<String>){
-    println("Exam du code de la route version 0.001 NuIt dE L'iNfO EdItIoN")
-    testQuestion()
-}
-
 fun testQuestion(){
     println("L'adversaire rentre dans le tunnel au début de waluigi pinball")
     println("[A] Je lance ma carapace rouge  [B] J'attend d'être sorti du tunnel")

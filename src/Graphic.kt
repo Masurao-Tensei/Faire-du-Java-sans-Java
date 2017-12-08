@@ -42,45 +42,46 @@ class Graphic()
 
         var valideButton : Button = Button("Valider")
 
-
+        var boolReponse : Boolean
 
         var reponse:Array<Char>
-        var soluce:String = "BD"
+        var soluce:String = "AC"
 
         var question : String = """
-            |L'adversaire rentre dans le tunnel au début de waluigi pinball
-            |[A] Je lance ma carapace rouge  [B] J'attend d'être sorti du tunnel
-            |Une carapace bleue sera efficace dans le tunnel
-            |[C] Oui                         [D] Non, duh""".trimMargin()
+            |Parmi les situations suivantes, quelles sont les plus dangereuses?
+            ||A| Le jeune piéton qui traverse au Feu Vert des Véhicules.
+            ||B| Le Cycliste qui roule proche du trottoir.
+            ||C| Le Motard qui brûle le feu rouge.
+            ||D| Le Camion qui cède le passage au piéton""".trimMargin()
 
-        var text:Text = Text(50.0, 50.0, question)
+        var text:Text = Text(50.0, 50.0, null)
         text.font = Font(20.0)
         valideButton.scaleX = 2.0
         valideButton.scaleY = 2.0
-        valideButton.layoutX = 600.0
+        valideButton.layoutX = 700.0 /2 - valideButton.scaleX / 2
         valideButton.layoutY = 650.0
 
         cba = CheckBox("A")
         cba.layoutX = 100.0
-        cba.layoutY = 650.0
+        cba.layoutY = 550.0
         cba.scaleX = 4.0
         cba.scaleY = 4.0
 
         cbb = CheckBox("B")
         cbb.layoutX = 250.0
-        cbb.layoutY = 650.0
+        cbb.layoutY = 550.0
         cbb.scaleX = 4.0
         cbb.scaleY = 4.0
 
         cbc = CheckBox("C")
         cbc.layoutX = 400.0
-        cbc.layoutY = 650.0
+        cbc.layoutY = 550.0
         cbc.scaleX = 4.0
         cbc.scaleY = 4.0
 
         cbd = CheckBox("D")
         cbd.layoutX = 550.0
-        cbd.layoutY = 650.0
+        cbd.layoutY = 550.0
         cbd.scaleX = 4.0
         cbd.scaleY = 4.0
 
@@ -93,8 +94,10 @@ class Graphic()
 
         primaryStage.show()
 
+        affichageEtReponseQuestion(question, text)
+
         valideButton.setOnMouseClicked { event ->
-            reponse = arrayOf(' ')
+            reponse = arrayOf()
             if(cba.isSelected)
                 reponse = reponse.plus('A')
             if(cbb.isSelected)
@@ -104,17 +107,24 @@ class Graphic()
             if(cbd.isSelected)
                 reponse = reponse.plus('D')
 
-            validationReponses(reponse, soluce)
+
+            if(validationReponses(reponse, soluce))
+            {
+                println("Bonne reponse")
+            }
+            else
+            {
+                println("Mauvaise reponse, la(les) bonne(s) reponse(s) est(sont) " + soluce)
+            }
 
         }
 
 
-        affichageEtReponseQuestion(null)
 
     }
-    fun affichageEtReponseQuestion(question: Image?)
+    fun affichageEtReponseQuestion(question: String, text:Text)
     {
-
+        text.text = "Question:\n" + question
     }
 
 

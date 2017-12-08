@@ -8,7 +8,7 @@ fun testQuestion(){
     println("L'adversaire rentre dans le tunnel au début de waluigi pinball")
     println("[A] Je lance ma carapace rouge  [B] J'attend d'être sorti du tunnel")
     println("Une carapace bleue sera efficace dans le tunnel")
-    println("[C] Oui                         [D] Non")
+    println("[C] Oui                         [D] Non, duh")
     print("Réponse: ")
     val reps = readLine()
     val areps = strToCharArray(reps)

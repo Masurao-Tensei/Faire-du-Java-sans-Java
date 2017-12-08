@@ -15,6 +15,7 @@ import javafx.scene.text.Text
 import javafx.stage.Stage
 import javafx.util.Duration
 import java.util.*
+import java.util.concurrent.TimeUnit
 import java.util.logging.Handler
 import kotlin.concurrent.timerTask
 
@@ -110,11 +111,11 @@ class Graphic()
 
             if(validationReponses(reponse, soluce))
             {
-                println("Bonne reponse")
+                text.text = "Bonne reponse"
             }
             else
             {
-                println("Mauvaise reponse, la(les) bonne(s) reponse(s) est(sont) " + soluce)
+               text.text = "Mauvaise reponse, la(les) bonne(s) reponse(s) est(sont) " + soluce
             }
 
         }
